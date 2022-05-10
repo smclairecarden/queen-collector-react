@@ -3,11 +3,10 @@ import moment from 'moment'
 
 // Services
 import { addRead } from '../../../services/queens'
-import QueenActions from './QueenActions'
 
 const initialState = {
-  meal: 'B',
-  date: moment(new Date()).format('YYYY-MM-DDTHH:mm')
+  read: '',
+  name: ''
 }
 
 const ReadForm = ({ queen, setQueen }) => {
@@ -15,6 +14,8 @@ const ReadForm = ({ queen, setQueen }) => {
 
   const addToReads = async (e) => {
     e.preventDefault()
+    const readQueen = await addRead(queen.id, form)
+    setQueen(readQueen)
     setForm(initialState)
   }
 
@@ -25,8 +26,6 @@ const ReadForm = ({ queen, setQueen }) => {
   return (
     <>
       <h3>The Library Is Open!</h3>
-
-      {!queen.read &&
         <form onSubmit={addToReads}>
           <div>
             <label htmlFor="read">Read:</label>
@@ -45,7 +44,7 @@ const ReadForm = ({ queen, setQueen }) => {
 
           <button type="submit" className="btn submit">Read this Queen</button>
         </form>
-      }
+      
     </>
   )
 }
