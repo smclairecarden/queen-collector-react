@@ -18,37 +18,27 @@ import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 // Services
 import * as authService from '../services/authService'
 
-// Image Assets
-import CoolCat from '../assets/cool-cat.svg'
-import NerdCat from '../assets/nerd-cat.svg'
-import HappyCat from '../assets/happy-cat.svg'
-import CatInBox from '../assets/cat-in-box.svg'
-import TeaCupCat from '../assets/teacup-cat.svg'
-import SkaterCat from '../assets/sk8r-boi-cat.svg'
+
 
 function App() {
   const navigate = useNavigate()
-  const [cats, setCats] = useState([])
-  const [toys, setToys] = useState([])
+  const [queens, setQueens] = useState([])
+  const [shows, setShows] = useState([])
   const [user, setUser] = useState(authService.getUser())
 
-  const catImages = [
-    SkaterCat, CoolCat,
-    NerdCat, HappyCat,
-    CatInBox, TeaCupCat,
-  ]
 
-  const addCat = async (catData) => {}
 
-  const addToy = async (toyData) => {}
+  const addQueen = async (queenData) => {}
 
-  const updateCat = async (catData) => {}
+  const addShow = async (showData) => {}
 
-  const updateToy = async (toyData) => {}
+  const updateQueen = async (queenData) => {}
 
-  const deleteCat = async (id) => {}
+  const updateShow = async (showData) => {}
 
-  const deleteToy = async (id) => {}
+  const deleteQueen = async (id) => {}
+
+  const deleteShow = async (id) => {}
 
   const handleLogout = () => {
     authService.logout()
@@ -66,52 +56,52 @@ function App() {
           <Route path="/signup" element={<Signup user={user} setUser={setUser} />} />
           <Route path="/shows" element={
             <ProtectedRoute user={user}>
-              <ShowList toys={toys} />
+              <ShowList shows={shows} />
             </ProtectedRoute>
           } />
           <Route path="/queens" element={
             <ProtectedRoute user={user}>
-              <QueenList cats={cats} catImages={catImages} />
+              <QueenList queens={queens} />
             </ProtectedRoute>
           } />
           <Route path="/shows/:id" element={
             <ProtectedRoute user={user}>
-              <ShowDetails toys={toys} user={user} />
+              <ShowDetails shows={shows} user={user} />
             </ProtectedRoute>
           } />
           <Route path="/queens/:id" element={
             <ProtectedRoute user={user}>
-              <QueenDetails catImages={catImages} user={user} />
+              <QueenDetails user={user} />
             </ProtectedRoute>
           } />
           <Route path="/queens/new" element={
             <ProtectedRoute user={user}>
-              <QueenForm addCat={addCat} user={user} />
+              <QueenForm addQueen={addQueen} user={user} />
             </ProtectedRoute>
           } />
           <Route path="/shows/new" element={
             <ProtectedRoute user={user}>
-              <ShowForm addToy={addToy} user={user} />
+              <ShowForm addShow={addShow} user={user} />
             </ProtectedRoute>
           } />
           <Route path="/queens/:id/edit" element={
             <ProtectedRoute user={user}>
-              <QueenForm cats={cats} updateCat={updateCat} user={user} />
+              <QueenForm queens={queens} updateQueen={updateQueen} user={user} />
             </ProtectedRoute>
           } />
           <Route path="/shows/:id/edit" element={
             <ProtectedRoute user={user}>
-              <ShowForm toys={toys} updateToy={updateToy} user={user} />
+              <ShowForm shows={shows} updateShow={updateShow} user={user} />
             </ProtectedRoute>
           } />
           <Route path="/queens/:id/confirmation" element={
             <ProtectedRoute user={user}>
-              <Confirmation deleteCat={deleteCat} user={user} />
+              <Confirmation deleteQueen={deleteQueen} user={user} />
             </ProtectedRoute>
           } />
           <Route path="/shows/:id/confirmation" element={
             <ProtectedRoute user={user}>
-              <Confirmation deleteToy={deleteToy} user={user} />
+              <Confirmation deleteShow={deleteShow} user={user} />
             </ProtectedRoute>
           } />
         </Routes>

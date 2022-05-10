@@ -6,7 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 
 // Components
-import ToyInput from './ToyInput'
+import ToyInput from './ShowInput'
 
 // Image Assets
 import NerdCat from '../../assets/nerd-cat.svg'

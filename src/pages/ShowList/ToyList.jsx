@@ -7,7 +7,7 @@ import StringToy from '../../assets/string.svg'
 import PostToy from '../../assets/post.svg'
 
 // Components
-import ToyCard from '../../components/ToyCard/ToyCard'
+import ToyCard from '../../components/ShowCard/ShowCard'
 
 const ToyList = (props) => {
   return (
