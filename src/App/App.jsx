@@ -11,7 +11,7 @@ import QueenList from '../pages/QueenList/QueenList'
 import ShowList from '../pages/ShowList/ToyList'
 import Header from '../components/Header/Header'
 import ShowDetails from '../pages/ShowDetails/ToyDetails'
-import QueenDetails from '../pages/QueenDetails/CatDetails'
+import QueenDetails from '../pages/QueenDetails/QueenDetails'
 import Confirmation from '../pages/Confirmation/Confirmation'
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 
