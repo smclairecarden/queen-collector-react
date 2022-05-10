@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import './QueenDetails.css'
 import { getOne } from '../../services/queens'
 import QueenActions from './components/QueenActions'
+import Reads from './components/Reads'
 
 // Services
 
@@ -38,12 +39,12 @@ const QueenDetails = ({ catImages, user }) => {
         </div>
       </section>
       <div className="feedings-toy-container">
-        {/* <Feedings
-          cat={cat}
+        <Reads
+          queen={queen}
           user={user}
-          setCat={setCat}
+          setQueen={setQueen}
         />
-        <ToyCollection
+        {/* <ToyCollection
           cat={cat}
           user={user}
           toys={availableToys}
