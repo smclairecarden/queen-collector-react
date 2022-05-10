@@ -6,20 +6,18 @@ import '../../styles/Form.css'
 
 
 // Components
-import CatInput from './QueenInput'
+import QueenInput from './QueenInput'
 
-// Image Assets
-import NerdCat from '../../assets/nerd-cat.svg'
 
-const CatForm = (props) => {
+const QueenForm = (props) => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [form, setForm] = useState({})
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    id ? props.updateCat(form) : props.addCat(form)
-    navigate(`/cats`)
+    id ? props.updateQueen(form) : props.addQueen(form)
+    navigate(`/queens`)
   }
 
   const handleChange = (e) => {
@@ -32,14 +30,14 @@ const CatForm = (props) => {
     <>
       <div className="page-header">
         {id
-          ? <h1>Edit Cat</h1>
-          : <><h1>Add Cat</h1><img src={NerdCat} alt="A cat using a computer" /></>
+          ? <h1>Edit Queen</h1>
+          : <><h1>Add Queen</h1></>
         }
       </div>
 
       <section className="form-container">
         <form onSubmit={handleSubmit}>
-          <CatInput form={form} handleChange={handleChange} />
+          <QueenInput form={form} handleChange={handleChange} />
           <button type="submit" className="btn submit">Submit!</button>
         </form>
       </section>
@@ -47,4 +45,4 @@ const CatForm = (props) => {
   )
 }
 
-export default CatForm
+export default QueenForm
