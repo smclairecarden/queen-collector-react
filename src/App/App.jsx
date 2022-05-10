@@ -44,7 +44,10 @@ function App() {
 
   const updateShow = async (showData) => {}
 
-  const deleteQueen = async (id) => {}
+  const deleteQueen = async (id) => {
+    await queenService.deleteOne(id)
+    setQueens(queens.filter(queen => queen.id !== parseInt(id)))
+  }
 
   const deleteShow = async (id) => {}
 
