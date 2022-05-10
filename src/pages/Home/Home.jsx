@@ -29,12 +29,7 @@ const Home = ({ user, setUser }) => {
 
   return (
     <div className="home-container">
-      <section className="logo-container" >
-        <div className="cat-logo-container">
-          <img src={Splash} alt="The Cat Collector Cat" />
-        </div>
-        <img src={LogoType} alt="Text reads: Cat Collector" />
-      </section >
+      <h1>Welcome to The Queen Collector!</h1>
       {!user &&
         <section className="login-container">
           <form onSubmit={handleSubmit} className="login">

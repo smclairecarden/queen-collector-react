@@ -6,10 +6,10 @@ const Nav = (props) => {
       <ul>
         {props.user ?
           <>
-            <li> <NavLink to='/cats'>All Cats</NavLink></li>
-            <li><NavLink to='/toys'>All Toys</NavLink></li>
-            <li><NavLink to='/cats/new'>Add a Cat</NavLink></li>
-            <li> <NavLink to='/toys/new'>Add a Toy</NavLink></li>
+            <li> <NavLink to='/queens'>All Queens</NavLink></li>
+            <li><NavLink to='/shows'>All Shows</NavLink></li>
+            <li><NavLink to='/queens/new'>Add a Queen</NavLink></li>
+            <li> <NavLink to='/shows/new'>Add a Show</NavLink></li>
             <li onClick={() => props.handleLogout()}>Log out</li>
           </>
           :
