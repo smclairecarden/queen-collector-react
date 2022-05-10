@@ -35,7 +35,12 @@ function App() {
 
   const addShow = async (showData) => {}
 
-  const updateQueen = async (queenData) => {}
+  const updateQueen = async (queenData) => {
+    const updatedQueen = await queenService.update(queenData)
+    setQueens(queens.map((queen) => (
+    queen.id === updatedQueen.id ? updatedQueen : queen
+    )))
+  }
 
   const updateShow = async (showData) => {}
 

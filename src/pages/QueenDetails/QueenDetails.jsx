@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './QueenDetails.css'
 import { getOne } from '../../services/queens'
+import QueenActions from './components/QueenActions'
 
 // Services
 
@@ -33,7 +34,7 @@ const QueenDetails = ({ catImages, user }) => {
           <h1>{queen.name}</h1>
           <p>Season: {queen.season}</p>
           <p>{queen.description}</p>
-
+        <QueenActions queen={queen} user={user} />
         </div>
       </section>
       <div className="feedings-toy-container">

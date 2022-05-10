@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import '../../styles/Form.css'
 
 // Services
-
+import { getOne } from '../../services/queens'
 
 // Components
 import QueenInput from './QueenInput'
@@ -24,7 +24,19 @@ const QueenForm = (props) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  useEffect(() => {}, [id])
+  useEffect(() => {
+    const fetchOne = async () => {
+      const data = await getOne(id)
+      setForm({
+        id: data.queen.id,
+        name: data.queen.name,
+        season: data.queen.season,
+        description: data.queen.description
+      })
+    }
+    id && fetchOne()
+    return () => setForm({})
+  }, [id])
 
   return (
     <>
