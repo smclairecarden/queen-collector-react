@@ -3,8 +3,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login, getUser } from '../../services/authService'
 
-// Image Assets
-import NerdCat from '../../assets/nerd-cat.svg'
 
 const Login = ({ setUser }) => {
   const navigate = useNavigate()
@@ -20,7 +18,7 @@ const Login = ({ setUser }) => {
       await login(form)
       const currentUser = getUser()
       setUser(currentUser)
-      navigate('/cats')
+      navigate('/queens')
     } catch (err) {
       setForm({ ...form, error: err.toString()})
     }
@@ -38,7 +36,6 @@ const Login = ({ setUser }) => {
     <>
       <div className="page-header">
         <h1>Login</h1>
-        <img src={NerdCat} alt="A cat using a computer" />
       </div>
 
       {form.error &&

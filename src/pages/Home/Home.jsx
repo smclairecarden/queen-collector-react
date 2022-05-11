@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { login, getUser } from '../../services/authService'
 
-import LogoType from '../../assets/logotype.svg'
-import Splash from '../../assets/splash.svg'
-
 
 const Home = ({ user, setUser }) => {
   const navigate = useNavigate()
@@ -20,7 +17,7 @@ const Home = ({ user, setUser }) => {
     await login(form)
     const currentUser = getUser()
     setUser(currentUser)
-    navigate('/cats')
+    navigate('/queens')
   }
 
   const handleChange = (e) => {

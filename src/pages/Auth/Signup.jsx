@@ -22,7 +22,7 @@ const Signup = ({ setUser }) => {
       await signup(form)
       const currentUser = getUser()
       setUser(currentUser)
-      navigate('/cats')
+      navigate('/queens')
     } catch (err) {      
       setForm({ ...form, error: err.toString()})
     }
