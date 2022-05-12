@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom'
-import { hexToRGBA } from './Utils'
 
-const ToyCard = ({ toy, isCard }) => {
-  const cardStyle = {
-    borderColor: `${toy.color}`,
-    backgroundColor: toy.color && hexToRGBA(toy.color)
-  }
+
+const ShowCard = ({ show, isCard }) => {
 
   return (
-    <Link to={`/toys/${toy.id}`} className="toy-card" style={cardStyle}>
-      {isCard && <><h2>{toy.name}</h2><p>{toy.description}</p></>}
+    <Link to={`/shows/${show.id}`} className="toy-card" >
+      {isCard && <><h2>{show.name}</h2><p>{show.description}</p></>}
     </Link>
   )
 }
 
-export default ToyCard
+export default ShowCard

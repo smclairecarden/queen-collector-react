@@ -18,6 +18,7 @@ import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 // Services
 import * as authService from '../services/authService'
 import * as queenService from '../services/queens'
+import * as showService from '../services/shows'
 
 
 function App() {
@@ -33,7 +34,10 @@ function App() {
     setQueens([...queens, queen])
   }
 
-  const addShow = async (showData) => {}
+  const addShow = async (showData) => {
+    const show = await showService.create(showData)
+    setShows([...shows, show])
+  }
 
   const updateQueen = async (queenData) => {
     const updatedQueen = await queenService.update(queenData)
@@ -61,6 +65,14 @@ function App() {
     const fetchData = async () => {
       const data = await queenService.getAll()
       setQueens(data)
+    }
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await showService.getAll()
+      setShows(data)
     }
     fetchData()
   }, [])
