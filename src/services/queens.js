@@ -80,3 +80,18 @@ export const addRead = async (id, data) => {
     throw error
   }
 }
+
+export const assocShow = async (queenId, showId) => {
+  try {
+    const res = await fetch(`${BASE_URL}${queenId}/shows/${showId}`, {
+      method: "LINK",
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './QueenDetails.css'
-import { getOne } from '../../services/queens'
+import { getOne, assocShow } from '../../services/queens'
 import QueenActions from './components/QueenActions'
 import Reads from './components/Reads'
 import ShowCollection from './components/ShowCollection'
@@ -14,7 +14,13 @@ const QueenDetails = ({ catImages, user }) => {
   const [queen, setQueen] = useState(null)
   const [availableShows, setAvailableShows] = useState([])
 
-  const addToCollection = async (e) => {}
+  const addToCollection = async (e) => {
+    e.preventDefault()
+    const showId = parseInt(e.target.id)
+    const updatedQueen = await assocShow(queen.id, showId)
+    setAvailableShows(availableShows.filter(show => showId !== show.id))
+    setQueen({...updatedQueen})
+  }
 
   useEffect(() => {
     const fetchOne = async () => {
