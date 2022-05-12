@@ -4,6 +4,7 @@ import './QueenDetails.css'
 import { getOne } from '../../services/queens'
 import QueenActions from './components/QueenActions'
 import Reads from './components/Reads'
+import ShowCollection from './components/ShowCollection'
 
 // Services
 
@@ -44,12 +45,12 @@ const QueenDetails = ({ catImages, user }) => {
           user={user}
           setQueen={setQueen}
         />
-        {/* <ToyCollection
-          cat={cat}
+        <ShowCollection
+          queen={queen}
           user={user}
-          toys={availableToys}
+          shows={availableShows}
           addToCollection={addToCollection}
-        /> */}
+        />
       </div>
     </>
   )
