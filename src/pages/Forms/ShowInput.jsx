@@ -1,4 +1,4 @@
-const ToyInput = ({ form, handleChange }) => {
+const ShowInput = ({ form, handleChange }) => {
   return (
     <>
       <label htmlFor="name">Name</label>
@@ -11,13 +11,8 @@ const ToyInput = ({ form, handleChange }) => {
         value={form.description ? form.description : ''} onChange={handleChange} id="description"
         required name="description" type="text" placeholder="Description" autoComplete="off"
       />
-      <label htmlFor="color">Color</label>
-      <input
-        value={form.color ? form.color : '#ff0000'} onChange={handleChange} id="color"
-        required name="color" type="color" placeholder="Color" autoComplete="off"
-      />
     </>
   )
 }
 
-export default ToyInput
+export default ShowInput

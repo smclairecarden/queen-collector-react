@@ -6,12 +6,12 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 
 // Components
-import ToyInput from './ShowInput'
+import ShowInput from './ShowInput'
 
 // Image Assets
-import NerdCat from '../../assets/nerd-cat.svg'
 
-const ToyForm = (props) => {
+
+const ShowForm = (props) => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [form, setForm] = useState({})
@@ -32,14 +32,16 @@ const ToyForm = (props) => {
     <>
       <div className="page-header">
         {id
-          ? <h1>Edit Toy</h1>
-          : <><h1>Add Toy</h1><img src={NerdCat} alt="A cat using a computer" /></>
+          ? <h1>Edit Show</h1>
+          : <>
+          <h1>Add Show</h1>
+          </>
         }
       </div>
 
       <section className="form-container">
         <form onSubmit={handleSubmit}>
-          <ToyInput form={form} handleChange={handleChange} />
+          <ShowInput form={form} handleChange={handleChange} />
           <button type="submit" className="btn submit">Submit!</button>
         </form>
       </section>
@@ -47,4 +49,4 @@ const ToyForm = (props) => {
   )
 }
 
-export default ToyForm
+export default ShowForm
