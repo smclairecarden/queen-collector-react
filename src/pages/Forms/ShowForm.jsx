@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 // Services
-
+import { getOne } from '../../services/shows'
 
 // Components
 import ShowInput from './ShowInput'
@@ -18,15 +18,26 @@ const ShowForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    id ? props.updateToy(form) : props.addToy(form)
-    navigate(`/toys`)
+    id ? props.updateShow(form) : props.addShow(form)
+    navigate(`/shows`)
   }
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  useEffect(() => {}, [id])
+  useEffect(() => {
+    const fetchOne = async () => {
+      const showData = await getOne(id)
+      setForm({
+        id: showData.id,
+        name: showData.name,
+        description: showData.description
+      })
+    }
+    id && fetchOne()
+    return () => setForm({})
+  }, [id])
 
   return (
     <>

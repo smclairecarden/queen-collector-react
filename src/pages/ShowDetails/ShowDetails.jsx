@@ -31,7 +31,7 @@ const ShowDetails = ({ user }) => {
         <div className="toy-details">
           <h1>{show.name}</h1>
           <p>{show.description}</p>
-          <ShowActions shpw={show} user={user} />
+          <ShowActions show={show} user={user} />
         </div>
       </section>
     </>
