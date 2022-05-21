@@ -19,7 +19,8 @@ const ShowForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     id ? props.updateShow(form) : props.addShow(form)
-    navigate(`/shows`)
+    navigate(`/shows`).reload()
+    
   }
 
   const handleChange = (e) => {
@@ -32,11 +33,12 @@ const ShowForm = (props) => {
       setForm({
         id: showData.id,
         name: showData.name,
-        description: showData.description
+        description: showData.description,
       })
     }
     id ? fetchOne() : setForm({})
-    return () => setForm({})
+    return () => setForm({}).reload()
+    
   }, [id])
 
   return (

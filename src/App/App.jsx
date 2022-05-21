@@ -58,7 +58,10 @@ function App() {
     setQueens(queens.filter(queen => queen.id !== parseInt(id)))
   }
 
-  const deleteShow = async (id) => {}
+  const deleteShow = async (id) => {
+    await showService.deleteOne(id)
+    setShows(shows.filter(show => show.id !== parseInt(id)))
+  }
 
   const handleLogout = () => {
     authService.logout()
