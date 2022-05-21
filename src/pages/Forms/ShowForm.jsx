@@ -35,7 +35,7 @@ const ShowForm = (props) => {
         description: showData.description
       })
     }
-    id && fetchOne()
+    id ? fetchOne() : setForm({})
     return () => setForm({})
   }, [id])
 

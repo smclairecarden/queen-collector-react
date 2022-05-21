@@ -8,7 +8,7 @@ import Signup from '../pages/Auth/Signup'
 import QueenForm from '../pages/Forms/QueenForm'
 import ShowForm from '../pages/Forms/ShowForm'
 import QueenList from '../pages/QueenList/QueenList'
-import ShowList from '../pages/ShowList/ToyList'
+import ShowList from '../pages/ShowList/ShowList'
 import Header from '../components/Header/Header'
 import ShowDetails from '../pages/ShowDetails/ShowDetails'
 import QueenDetails from '../pages/QueenDetails/QueenDetails'
@@ -49,7 +49,7 @@ function App() {
   const updateShow = async (showData) => {
     const updatedShow = await showService.update(showData)
     setShows(shows.map((show) => (
-      show.id === updatedShow.id ? updateShow : show
+      show.id === updateShow.id ? updatedShow : show
     )))
   }
 

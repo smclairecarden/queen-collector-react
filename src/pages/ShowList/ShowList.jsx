@@ -6,7 +6,7 @@ import './ToyList.css'
 // Components
 import ShowCard from '../../components/ShowCard/ShowCard'
 
-const ToyList = (props) => {
+const ShowList = (props) => {
   return (
     <>
       <section className="page-header">
@@ -22,4 +22,4 @@ const ToyList = (props) => {
   )
 }
 
-export default ToyList
+export default ShowList
